@@ -26,6 +26,9 @@ public:
   // measurement covariance matrix
   MatrixXd R_;
 
+  // Normalized Innovation Squared matrix
+  MatrixXd NIS_;
+
   /**
    * Constructor
    */
@@ -61,11 +64,9 @@ public:
    */
   void Update(const VectorXd &z);
 
-  /**
-   * Updates the state by using Extended Kalman Filter equations
-   * @param z The measurement at k+1
-   */
   void UpdateEKF(const VectorXd &z);
+
+  void CalculateNIS(const VectorXd& gt);
 
 
 };

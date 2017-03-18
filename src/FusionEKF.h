@@ -23,7 +23,7 @@ public:
   /**
   * Run the whole flow of the Kalman Filter from here.
   */
-  void ProcessMeasurement(const MeasurementPackage &measurement_pack);
+  void ProcessMeasurement(const MeasurementPackage &measurement_pack, std::ofstream& dbg_file);
 
   /**
   * Kalman Filter update and prediction math lives in here.

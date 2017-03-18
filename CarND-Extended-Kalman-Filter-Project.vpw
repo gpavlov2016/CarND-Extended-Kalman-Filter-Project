@@ -1,0 +1,9 @@
+<!DOCTYPE Workspace SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpw.dtd">
+<Workspace Version="10.0" VendorName="SlickEdit">
+	<Projects>
+		<Project File="CarND-Extended-Kalman-Filter-Project.vpj"/>
+	</Projects>
+	<Environment>
+		<Set Name="PATH" Value="C:\MinGW\bin;C:\MinGW\msys\1.0\bin;%PATH%"/>
+	</Environment>
+</Workspace>
