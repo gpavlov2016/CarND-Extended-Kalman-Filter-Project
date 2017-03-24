@@ -46,21 +46,20 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     float vy = x_(3);
     float range = sqrt(px*px + py*py);
     VectorXd z_pred = VectorXd(3);
-    if (abs(px) > 0.001) 
+    if (px < -0.001 || px > 0.001) 
     {
         z_pred(0) = range;
         z_pred(1) = atan(py/px);
         z_pred(2) = (px*vx + py*vy)/range;
     } else {
-        z_pred(0) = py;
-        z_pred(1) = PI/2;
-        z_pred(2) = vy;
+        return;
     }
     VectorXd y = z - z_pred;
     MatrixXd Ht = H_.transpose();
-    MatrixXd S = H_ * P_ * Ht + R_;
-    MatrixXd Si = S.inverse();
+    //MatrixXd S = H_ * P_ * Ht + R_;
     MatrixXd PHt = P_ * Ht;
+    MatrixXd S = H_ * PHt + R_;
+    MatrixXd Si = S.inverse();
     MatrixXd K = PHt * Si;
 
     //new estimate
